@@ -1,0 +1,68 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.view.View;
+
+import sk.SKAdapter;
+import sk.SKHolder;
+import sk.livedata.SKLoadMoreCallBack;
+
+/**
+ * @author ${USER}
+ * @date Created on ${YEAR}-${MONTH}-${DAY} ${TIME}
+ * @version 1.0
+ * @Description ${NAME} - 描述
+ */
+public class ${NAME} extends SKAdapter<${NAME}.Model, SKHolder> {
+
+    public static final int	TYPE_ONE	= 1;
+
+    public static final int	TYPE_TWO	= 2;
+
+    public ${NAME}(@NonNull SKLoadMoreCallBack skLoadMoreCallBac) {
+        super();//DiffUtil.ItemCallback自定义数据比较器
+    }
+
+    @Override public int layoutID(int position) {
+        return getItem(position).layout;
+    }
+
+    @Override public SKHolder newHolder(int viewType, View view, Context context){
+        SKHolder skHolder = null;
+        switch (viewType){
+            case R.layout.${LAYOUT1}:
+                skHolder = new TopHolder(view);
+                break;
+            case R.layout.${LAYOUT2}:
+                skHolder = new BottomHolder(view);
+                break;
+        }
+        return skHolder;
+    }
+
+    public class TopHolder extends SKHolder<Model> {
+
+        public TopHolder(View itemView) {
+            super(itemView);
+        }
+
+        @Override public void bindData(Model model, int position) {
+        }
+    }
+
+    public class BottomHolder extends SKHolder<Model> {
+
+        public BottomHolder(View itemView) {
+            super(itemView);
+        }
+
+        @Override public void bindData(Model model, int position) {
+
+        }
+    }
+
+    public static class Model {
+        public int layout;
+    }
+}

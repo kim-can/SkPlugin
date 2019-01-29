@@ -1,0 +1,43 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.view.View;
+
+import sk.SKAdapter;
+import sk.SKHolder;
+import sk.livedata.SKLoadMoreCallBack;
+
+/**
+ * @author ${USER}
+ * @date Created on ${YEAR}-${MONTH}-${DAY} ${TIME}
+ * @version 1.0
+ * @Description ${NAME} - 描述
+ */
+public class ${NAME} extends SKAdapter<${NAME}.Model, ${NAME}.ItemHolder> {
+
+    public ${NAME}(@NonNull SKLoadMoreCallBack skLoadMoreCallBac) {
+        super();//DiffUtil.ItemCallback自定义数据比较器
+    }
+
+    @Override public int layoutID(int position) {
+        return R.layout.${LAYOUT};
+    }
+
+    @Override public ItemHolder newHolder(int viewType, View view, Context context) {
+        return new ItemHolder(view);
+    }
+
+    public class ItemHolder extends SKHolder<Model> {
+
+        public ItemHolder(View itemView) {
+            super(itemView);
+        }
+
+        @Override public void bindData(Model model, int position) {
+
+        }
+    }
+
+    public static class Model {}
+}
