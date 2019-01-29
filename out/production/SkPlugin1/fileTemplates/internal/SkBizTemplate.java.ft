@@ -1,0 +1,16 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import sk.SKBiz;
+import android.os.Bundle;
+
+/**
+ * @author ${USER}
+ * @date Created on ${YEAR}-${MONTH}-${DAY} ${TIME}
+ * @version 1.0
+ * @Description ${NAME} - 描述
+ */
+public class ${NAME} extends SKBiz {
+
+    @Override public void initBiz(Bundle bundle) {}
+
+}
